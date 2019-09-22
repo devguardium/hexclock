@@ -17,3 +17,12 @@ $  pipenv run hy ./hexclock.hy
 
 ## Behold
 ... how the hy-powered hex-time goes by!
+
+# Enjoy hex-time goodies 
+e.g. a file with hex-time of equivalents of traditional time slots
+```sh
+$  pipenv run hy ./hexgoodies.hy 
+```
+and then check traditional-to-hex file.
+
+

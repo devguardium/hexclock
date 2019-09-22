@@ -23,9 +23,19 @@
     (setv secs (- now midnight))
     secs.seconds)
 
-(defn get-hex-time []
-    (setv ratio-now (/ (* (get-seconds-since-midnight) HEX-SECONDS) TRADITIONAL-SECONDS))
+(defn get-hex-time [traditional-time-seconds]
+    (setv ratio-now (/ (* traditional-time-seconds HEX-SECONDS) TRADITIONAL-SECONDS))
     (-> ratio-now (round) (decorate-hex) (cut 0 5)))
 
 (defn get-traditional-time []
     (decorate-traditional (datetime.datetime.now)))
+
+(defn traditional-to-hex [traditional]
+    (setv hours (int (cut traditional 0 2)))
+    (setv minutes (int (cut traditional 3 5)))
+
+    (setv hex_seconds (+ (* hours 3600) (* minutes 60)))
+
+    (get-hex-time hex-seconds))
+
+

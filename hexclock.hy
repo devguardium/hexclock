@@ -36,7 +36,7 @@
 
 
 (defn tick []
-    (.set var-hex-time (hexengine.get-hex-time))
+    (.set var-hex-time (hexengine.get-hex-time (hexengine.get-seconds-since-midnight)))
     (.set var-traditional-time (hexengine.get-traditional-time))
     (.after root 100 tick))
 
