@@ -12,7 +12,7 @@
     (.format "{0:#0{1}x}" i 6))
 
 (defn decorate-traditional [now]
-    (.format "{}:{}" now.hour now.minute))
+    (.format "{:02d}:{:02d}" now.hour now.minute))
 
 (defn get-seconds-since-midnight []
     (setv now (datetime.datetime.now))
