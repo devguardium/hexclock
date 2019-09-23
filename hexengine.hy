@@ -38,4 +38,8 @@
 
     (get-hex-time hex-seconds))
 
-
+(defn hex-to-traditional [hex]
+    (setv traditional-seconds (round (/ (* (int (+ "0x" hex "0") 16) TRADITIONAL-SECONDS) HEX-SECONDS)))
+    (setv hours (// traditional-seconds 3600))
+    (setv minutes (// (% traditional-seconds 3600) 60))
+    (.format "{:02d}:{:02d}" hours minutes))
